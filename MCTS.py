@@ -85,7 +85,7 @@ def best_child(root,color):
 
     move = best_node.board.pop()
 
-    return move
+    return move if move != None else (color,-1,-1)
 
 def MCTS(board,color,resources_left=100):
     root = Node_MCTS(None,board)
