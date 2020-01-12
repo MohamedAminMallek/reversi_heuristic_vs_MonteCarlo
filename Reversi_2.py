@@ -8,9 +8,6 @@
 import numpy as np
 from random import randint
 
-bonusPos = []
-bonusBlack = 0
-bonusWhite = 0
 
 class Board:
     _BLACK = 1
@@ -19,7 +16,6 @@ class Board:
 
     # Attention, la taille du plateau est donnée en paramètre
     def __init__(self, boardsize = 10):
-        global bonusPos
 
         self._nbWHITE = 2
         self._nbBLACK = 2
@@ -28,7 +24,6 @@ class Board:
         self._board = []
         for x in range(self._boardsize):
             self._board.append([self._EMPTY]* self._boardsize)
-            bonusPos.append([self._EMPTY]* self._boardsize)
         _middle = int(self._boardsize / 2)
         self._board[_middle-1][_middle-1] = self._WHITE 
         self._board[_middle-1][_middle] = self._BLACK
@@ -37,36 +32,6 @@ class Board:
         
         self._stack= []
         self._successivePass = 0
-        #-------------- our code -----------------
-        
-        for i in range(boardsize):
-            for j in range(boardsize):
-                if(i==0 and j==0) or (i==0 and j == boardsize-1) or (i==boardsize-1 and j==0) or (i==boardsize-1 and j== boardsize-1):
-                    bonusPos[i][j] = 250
-                
-                if(i>1 and i<boardsize-2 and j==0) or (i>1 and i<boardsize-2 and j==boardsize-1):
-                    bonusPos[i][j] = 10
-                
-                if(j>1 and j<boardsize-2 and i==0) or (j>1 and j<boardsize-2 and i==boardsize-1):
-                    bonusPos[i][j] = 10
-                
-                if(i>1 and i<boardsize-2 and j==1) or (i>1 and i<boardsize-2 and j==boardsize-2):
-                    bonusPos[i][j] = -15
-                if(j>1 and j<boardsize-2 and i==1) or (j>1 and j<boardsize-2 and i==boardsize-2):
-                    bonusPos[i][j] = -15
-                
-                if(i == 0 and (j==1 or j==boardsize-2)):
-                    bonusPos[i][j] = -200
-                if(i == 1 and (j==0 or j==1 or j==boardsize-2 or j==boardsize-1)):
-                    bonusPos[i][j] = -200
-                
-                if(i == boardsize-1 and (j==1 or j==boardsize-2)):
-                    bonusPos[i][j] = -200
-                if(i == boardsize-2 and (j==0 or j==1 or j==boardsize-2 or j==boardsize-1)):
-                    bonusPos[i][j] = -200
-        #-------------------------------------------
-        #for i in range(boardsize):
-        #    print(bonusPos[i])
 
     def reset(self):
         self.__init__()
@@ -202,15 +167,6 @@ class Board:
                 self._nbWHITE += 1 + len(toflip)
                 self._nbBLACK -= len(toflip)
                 self._nextPlayer = self._BLACK
-        #-----------our code---------
-        global bonusBlack
-        global bonusWhite
-        global bonusPos
-        if player == self._WHITE:
-            bonusWhite+=bonusPos[x][y]
-        else:
-            bonusBlack+=bonusPos[x][y]
-        #----------------------------
 
     def pop(self):
         [move, toflip] = self._stack.pop()
@@ -234,16 +190,6 @@ class Board:
             self._nbWHITE -= 1 + len(toflip)
             self._nbBLACK += len(toflip)
 
-        
-        #-----------our code---------
-        global bonusBlack
-        global bonusWhite
-        global bonusPos
-        if player == self._WHITE:
-            bonusWhite-=bonusPos[x][y]
-        else:
-            bonusBlack-=bonusPos[x][y]
-        #----------------------------
         return move
 
     # Est-ce que on peut au moins jouer un coup ?
@@ -390,10 +336,6 @@ class Board:
                             
                             whiteStability-= 1 if isWhite else 0
                             blackStability-= 1 if not isWhite else 0
-
-                    #print("i=",i,"j=",j)
-                    #print(neighbors)
-
 
         stability = 0
 

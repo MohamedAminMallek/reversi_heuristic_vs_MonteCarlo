@@ -10,7 +10,7 @@ from MCTS import *
 class myPlayerWithMCTS(PlayerInterface):
 
     def __init__(self):
-        self._board = Reversi_2.Board(8)
+        self._board = Reversi_2.Board(10)
         self._mycolor = None
 
     def getPlayerName(self):

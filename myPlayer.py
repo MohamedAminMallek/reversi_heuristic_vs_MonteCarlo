@@ -9,7 +9,7 @@ from fonctionsMinMax import *
 class myPlayer(PlayerInterface):
 
     def __init__(self):
-        self._board = Reversi.Board(8)
+        self._board = Reversi.Board(10)
         self._mycolor = None
 
     def getPlayerName(self):

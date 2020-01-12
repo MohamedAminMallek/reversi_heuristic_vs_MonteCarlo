@@ -1,15 +1,15 @@
-import Reversi
+import Reversi_2
 import myPlayer
-import myPlayer2
+import myPlayerHeuristic
 import myPlayerWithMCTS
 import time
 from io import StringIO
 import sys
 
-b = Reversi.Board(8)
+b = Reversi_2.Board(10)
 
 players = []
-player1 = myPlayer2.myPlayer2()
+player1 = myPlayerHeuristic.myPlayerHeuristic()
 player1.newGame(b._BLACK)
 players.append(player1)
 player2 = myPlayerWithMCTS.myPlayerWithMCTS()

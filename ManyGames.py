@@ -1,12 +1,9 @@
-import Reversi
-import myPlayer
-import myPlayer2
+import Reversi_2
+import myPlayerHeuristic
 import myPlayerWithMCTS
 import time
 from io import StringIO
 import sys
-
-use_stability_heuristic = True
 
 
 Monte_Carlo_start = 0
@@ -16,7 +13,7 @@ heuristic_second = 0
 
 for iter_game in range(50):
 
-    b = Reversi.Board(8)
+    b = Reversi_2.Board(10)
 
     print("ITERATION NUM :",iter_game)
 
@@ -24,10 +21,7 @@ for iter_game in range(50):
     players = []
     if iter_game%2 == 0:
         print("heuristic starts")
-        if use_stability_heuristic:
-            player1 = myPlayer2.myPlayer2()
-        else:
-            player1 = myPlayer.myPlayer()
+        player1 = myPlayerHeuristic.myPlayerHeuristic()
     else:
         print("monte carlo starts")
         player1 = myPlayerWithMCTS.myPlayerWithMCTS()
@@ -38,10 +32,7 @@ for iter_game in range(50):
     if iter_game%2 == 0:
         player2 = myPlayerWithMCTS.myPlayerWithMCTS()
     else:
-        if use_stability_heuristic:
-            player2 = myPlayer2.myPlayer2()
-        else:
-            player2 = myPlayer.myPlayer()
+        player2 = myPlayerHeuristic.myPlayerHeuristic()
     
     player2.newGame(b._WHITE)
     players.append(player2)
@@ -79,7 +70,7 @@ for iter_game in range(50):
 
         nextplayer = otherplayer
         nextplayercolor = othercolor
-        #print(b)
+        print(b)
         
         
 
