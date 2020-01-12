@@ -1,5 +1,4 @@
 import Reversi_2
-import myPlayer
 import myPlayerHeuristic
 import myPlayerWithMCTS
 import time

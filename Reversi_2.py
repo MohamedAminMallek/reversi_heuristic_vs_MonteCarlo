@@ -381,7 +381,7 @@ class Board:
             
             avancement = (self._nbBLACK + self._nbWHITE) / self._boardsize**2
 
-            result = mobility + stability if avancement<0.4 else stability*0.3 + (coin_parity+corners if isWhite else coin_parity*-1 + corners*-1)#+ int((difference*100 if isWhite else difference*-100)*1/avancement) - 50*len(self.legal_moves()) 
+            result = mobility + stability if avancement<0.4 else stability*0.3 + (coin_parity+corners if isWhite else coin_parity*-1 + corners*-1)
             return result
     def _piece2str(self, c):
         if c==self._WHITE:

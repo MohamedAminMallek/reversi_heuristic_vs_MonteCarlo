@@ -29,7 +29,7 @@ class myPlayerHeuristic(PlayerInterface):
         if avancement>0.85:
             profondeur = 4
 
-        if avancement>0.90:
+        if avancement>0.95:
             profondeur = (total-somme)+(total-somme)%2
         
         move = MTDF(self._board, profondeur)
