@@ -31,8 +31,9 @@ class myPlayerHeuristic(PlayerInterface):
 
         if avancement>0.97:
             profondeur = (total-somme)+(total-somme)%2
-        moves= self._board.legal_moves()
-        move = moves[randint(0,len(moves)-1)]#MTDF(self._board, profondeur)
+        #moves= self._board.legal_moves()
+        """moves[randint(0,len(moves)-1)]"""
+        move = MTDF(self._board, profondeur)
         (c,x,y) = move
 
         """ 
