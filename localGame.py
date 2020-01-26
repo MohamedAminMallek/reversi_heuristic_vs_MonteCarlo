@@ -5,7 +5,7 @@ import time
 from io import StringIO
 import sys
 
-b = Reversi_2.Board(10)
+b = Reversi_2.Board(8)
 
 players = []
 player1 = myPlayerHeuristic.myPlayerHeuristic()
@@ -25,6 +25,7 @@ sysstdout= sys.stdout
 stringio = StringIO()
 # ProblÃ¨me : quand on est en fin de partie, le ID est relancÃ© des millieurs de fois avec une profondeur max trÃ¨s grande
 #print(b.legal_moves())
+print(b)
 while not b.is_game_over():
     #print("Referee Board:")
     #print(b)

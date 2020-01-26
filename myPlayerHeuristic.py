@@ -9,7 +9,7 @@ from fonctionsMinMax import *
 class myPlayerHeuristic(PlayerInterface):
 
     def __init__(self):
-        self._board = Reversi_2.Board(10)
+        self._board = Reversi_2.Board(8)
         self._mycolor = None
 
     def getPlayerName(self):
@@ -26,18 +26,24 @@ class myPlayerHeuristic(PlayerInterface):
         avancement = somme/total
         profondeur = 2
         
-        if avancement>0.85:
+        if avancement>0.9:
             profondeur = 4
 
-        if avancement>0.95:
+        if avancement>0.97:
             profondeur = (total-somme)+(total-somme)%2
-        
-        move = MTDF(self._board, profondeur)
+        moves= self._board.legal_moves()
+        move = moves[randint(0,len(moves)-1)]#MTDF(self._board, profondeur)
         (c,x,y) = move
-        
+
+        """ 
+        x = int(input())
+        y = int(input())
+        c = self._mycolor
+        move = (c,x,y)
+        """
         self._board.push(move)
         assert(c==self._mycolor)
-        return (x,y) 
+        return (x,y)
 
     def playOpponentMove(self, x,y):
         #print('move ',x,y)

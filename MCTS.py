@@ -87,7 +87,7 @@ def best_child(root,color):
 
     return move if move != None else (color,-1,-1)
 
-def MCTS(board,color,resources_left=100):
+def MCTS(board,color,resources_left=80):
     root = Node_MCTS(None,board)
     while(resources_left>0):
         node = selection(root,color)
