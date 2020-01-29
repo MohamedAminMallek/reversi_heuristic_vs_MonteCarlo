@@ -13,5 +13,5 @@ Cette fonction dépend de trois éléments :
 La deuxième IA utilise l’algorithme Monte Carlo Tree Search.
 
 ### résultats:
-
+![](https://raw.githubusercontent.com/MohamedAminMallek/reversi_heuristic_vs_MonteCarlo/master/results_50_epochs_.png)
 ![](https://raw.githubusercontent.com/MohamedAminMallek/reversi_heuristic_vs_MonteCarlo/master/results_random.png)
