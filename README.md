@@ -8,8 +8,7 @@ Description de l'heuristique de la première IA :
 Cette fonction dépend de trois éléments :
 - Mobilité : plus on a des coups à jouer mieux c’est.
 - Stabilité : on donne des bonus aux pièces stables.
-- Possession des coins.
-- Parité des pièces.
+- Possession des pièces.
 
 La deuxième IA utilise l’algorithme Monte Carlo Tree Search.
 
