@@ -25,7 +25,7 @@ loses = (lose_first+lose_second).astype(int)
 
 
 fig, axs = plt.subplots(2,2,sharey='row',figsize=(10,8))
-fig.suptitle('Monte Carlo Vs Random')
+fig.suptitle('Monte Carlo Vs Heuristic')
 
 axs[0,0].plot(resources,wins)
 axs[0,1].plot(resources,loses)
