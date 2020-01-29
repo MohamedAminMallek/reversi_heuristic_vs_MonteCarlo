@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 
-
-df_stats = pd.read_csv("results.csv")
+filename = "results_50_epochs"
+df_stats = pd.read_csv(filename+".csv")
 
 columns = df_stats.columns
 
@@ -34,5 +34,5 @@ axs[1,0].plot(resources,mcts_timer)
 axs[0,0].set(xlabel='resources(samples)', ylabel='nb wins')
 axs[0,1].set(xlabel='resources(samples)', ylabel='nb loses')
 axs[1,0].set(xlabel='resources(samples)', ylabel='Time(sec) per move')
-
+plt.savefig(filename)
 plt.show()

@@ -2,6 +2,8 @@ import copy
 from random import randint
 import numpy as np
 import sys
+import math
+
 
 Black_color = 1 
 White_color = 2
@@ -75,11 +77,13 @@ def best_child(root,color):
     best_node = None
     
     for node in root.children:
+        
         score = node.nb_win_black - node.nb_win_white
         score = -score if color == White_color else score
         if score>best_score:
             best_score = score
             best_node = node
+        
 
     print("Best Score = ","Black win ",str(best_node.nb_win_black)+" vs ","White win ",str(best_node.nb_win_white))
 

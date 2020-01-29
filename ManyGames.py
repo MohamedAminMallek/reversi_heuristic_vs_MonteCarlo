@@ -18,14 +18,12 @@ for r in tqdm(ressources):
     heuristic_start = 0
     heuristic_second = 0
 
-    epochs = 10
+    epochs = 50
     mcts_times = []
     other_times = []
     
     
     for iter_game in tqdm(range(epochs)):
-
-        
 
         board_size = 8
         b = Reversi_2.Board(board_size)
@@ -119,6 +117,7 @@ for r in tqdm(ressources):
                 'Other_Player_Timer':sum(other_times)/len(other_times)}\
                     ,ignore_index=True)
     print(df_stats)
+    df_stats.to_csv("results.csv",index=False)
     #print("Monte Carlo : Second = ",monte_carlo_second)
     #print("Monte Carlo : Start = ",Monte_Carlo_start)
     #print("heuristic : Start = ",heuristic_start)
